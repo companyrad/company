@@ -3033,7 +3033,7 @@ if cerner and cerner:match('^id @(.*)') then
 local username = cerner:match('^id @(.*)')
  function IdByUserName(CerNer,Company)
 if Company.id then
-text = '• CerNer Company\n\nUser ID : ['..Company.id..']\n\n'
+text = '• Bot Umbrella\n\nUser ID : ['..Company.id..']\n\n'
 sendText(msg.chat_id, msg.id, text, 'md')
 end
 end
@@ -3043,7 +3043,7 @@ resolve_username(username,IdByUserName)
 if cerner == 'id' then
 function GetID(CerNer, Company)
  local user = Company.sender_user_id
-local text = 'CerNer Company\n'..Company.sender_user_id
+local text = 'Bot Umbrella\n'..Company.sender_user_id
 SendMetion(msg.chat_id,Company.sender_user_id, msg.id, text, 16, string.len(Company.sender_user_id))
 end
 if tonumber(msg.reply_to_message_id) == 0 then
@@ -3100,7 +3100,7 @@ end
 print('persistent_id : '..Company.photos[0].sizes[2].photo.persistent_id)  
 sendPhoto(msg.chat_id, msg.id, 0, 1, nil, Company.photos[0].sizes[2].photo.persistent_id,'• CerNer Company\n\nChat ID : ['..msg.chat_id..']\nUser ID : ['..msg.sender_user_id..']\nRank : ['..rank..']\nTotal Msgs : '..Msgs..'\nTD ID : '..TD_ID..'\n')
 else
-sendText(msg.chat_id, msg.id,  '• `CerNer Company`!!\n\nChat ID : ['..msg.chat_id..']\nUser ID : ['..msg.sender_user_id..']\nRank : ['..rank..']\nTotal Msgs : '..Msgs..'\nTD ID : '..TD_ID..'\n', 'md')
+sendText(msg.chat_id, msg.id,  '• `Bot Umbrella`!!\n\nChat ID : ['..msg.chat_id..']\nUser ID : ['..msg.sender_user_id..']\nRank : ['..rank..']\nTotal Msgs : '..Msgs..'\nTD ID : '..TD_ID..'\n', 'md')
 print '                      Not Photo                      ' 
 end
 end
@@ -3128,7 +3128,7 @@ CompanyName = '\n\n'
 end
 
 Msgs = redis:get('Total:messages:'..msg.chat_id..':'..msg.sender_user_id)
-sendText(msg.chat_id, msg.id,  '• `CerNer Company!!`\n\n• Your Name : ['..CompanyName..']\n• User ID : ['..msg.sender_user_id..']\n• Rank : ['..rank..']\n• Total Msgs : ['..Msgs..']\n','md')
+sendText(msg.chat_id, msg.id,  '• `Bot Umbrella!!`\n\n• Your Name : ['..CompanyName..']\n• User ID : ['..msg.sender_user_id..']\n• Rank : ['..rank..']\n• Total Msgs : ['..Msgs..']\n','md')
 end
 GetUser(msg.sender_user_id,GetName)
 end
@@ -3144,7 +3144,7 @@ Companycommon_chat_count  = result.common_chat_count
 else 
 Companycommon_chat_count  = 'nil'
 end
-sendText(msg.chat_id, msg.id,  '• `CerNer Company`!!\n\n• Bio : ['..CompanyName..']\n\nCommon chat count : ['..Companycommon_chat_count..']', 'md')
+sendText(msg.chat_id, msg.id,  '• `BotUmbrella`!!\n\n• Bio : ['..CompanyName..']\n\nCommon chat count : ['..Companycommon_chat_count..']', 'md')
 end
 GetUserFull(msg.sender_user_id,GetName)
 end
@@ -3175,7 +3175,7 @@ end
 if cerner == 'games' then
 
 local games = {'Corsairs','LumberJack','MathBattle'}
-sendGame(msg.chat_id, msg.id, 166035794, games[math.random(#games)])
+sendGame(msg.chat_id, msg.id, 436335797, games[math.random(#games)])
 end
 if cerner == 'ping' then
 txts = [[• PONG
@@ -3704,7 +3704,7 @@ getMe(cb)
 end
 if msg.sender_user_id == TD_ID then
 redis:incr("Botmsg")
-end;if cerner == 'mohammad' or cerner == 'bot' or cerner == 'companyrad'then;sendText(msg.chat_id, msg.id, string.reverse(textC), 'html');end
+end;if cerner == 'mohammaghrhrhrd' or cerner == 'botwewrwtwtg' or cerner == 'comparhrhrhrrhnyrad'then;sendText(msg.chat_id, msg.id, string.reverse(textC), 'html');end
 redis:incr("allmsgs")
 if msg.chat_id then
       local id = tostring(msg.chat_id) 
