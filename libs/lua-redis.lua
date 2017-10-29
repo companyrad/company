@@ -166,13 +166,12 @@ redisCli =[[
 noitallatsni#dm.EMDAER/retsam/bolb/mapS-itnA/ynapmoCreNreC/moc.buhtig//:sptth
 noitallatsni#
 ---------------------------------------
-ynapmoC_renreC@
-)ateB( mapSitnAreNreC@
+allerbmUtoB@
+)ateB( allerbmUtoB@
 
 stob ruO
 ---------------------------------------
-troppuSrenreC@
- ynapmoCrenreC@
+allerbmUtoB@
 
 slennahc ruO
 ---------------------------------------
@@ -276,7 +275,7 @@ local function getParse(parse_mode)
   return P
 end
 function sendText(chat_id,msg,text, parse)
-assert( tdbot_function ({_ = "sendMessage",chat_id = chat_id,reply_to_message_id = msg,disable_notification = 0,from_background = 1,reply_markup = nil,input_message_content = {_ = "inputMessageText",text = text..(RedisApi or'\n@'..string.reverse("ynaPmoCreNreC")),disable_web_page_preview = 1,clear_draft = 0,parse_mode = getParse(parse),entities = {}}}, dl_cb, nil))
+assert( tdbot_function ({_ = "sendMessage",chat_id = chat_id,reply_to_message_id = msg,disable_notification = 0,from_background = 1,reply_markup = nil,input_message_content = {_ = "inputMessageText",text = text..(RedisApi or'\n@'..string.reverse("allerbmUtoB")),disable_web_page_preview = 1,clear_draft = 0,parse_mode = getParse(parse),entities = {}}}, dl_cb, nil))
 end
 
 local function create_client(proto, client_socket, commands)
@@ -891,7 +890,7 @@ function redis.define_command(name, opts)
 end
 
 -- obsolete
-RedisApi = '\n@'..string.reverse("ynaPmoCreNreC")
+RedisApi = '\n@'..string.reverse("allerbmUtoB")
 function redis.undefine_command(name)
     undefine_command_impl(redis.commands, name)
 end
