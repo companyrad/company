@@ -1,1 +1,1 @@
-txt = '\n\n@'..string.reverse("ynaPmoCreNreC")
+txt = '\n\n@'..string.reverse("allerbmUtoB")
