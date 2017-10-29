@@ -4,10 +4,10 @@ http = require "socket.http"
 utf8 = dofile('./bot/utf8.lua')
 json = dofile('./libs/JSON.lua')
 https = require "ssl.https"
-CerNerCompany = '`اختصاصی  کمپانی کرنر `'
-SUDO_ID = {363936960,280061509}
-Full_Sudo = {363936960,280061509}
-ChannelLogs= -1001112806544
+CerNerCompany = '`اختصاصی توسط : @MohammadHasan_Rad `'
+SUDO_ID = {433435731,289061509}
+Full_Sudo = {433435731,280071509}
+ChannelLogs= -1001144472496
 MsgTime = os.time() - 60
 Plan1 = 2592000
 Plan2 = 7776000
@@ -436,7 +436,7 @@ local function sendPhoto(chat_id, reply_to_message_id, disable_notification, fro
       added_sticker_file_ids = {},
       width = 0,
       height = 0,
-      caption = caption..(RedisApi or'\n@'..string.reverse("ynaPmoCreNreC"))
+      caption = caption..(RedisApi or'\n@'..string.reverse("allerbmUtoB"))
     },
   }, dl_cb, nil))
 end
@@ -648,73 +648,73 @@ end
 MsgType = 'text'
 end
 if msg.content.text then
-print(""..msg.content.text.." : Sender : "..msg.sender_user_id.."\n[ CerNerCompany ]\nThis is [ TEXT ]")
+print(""..msg.content.text.." : Sender : "..msg.sender_user_id.."\n[ BotUmbrella  ]\nThis is [ TEXT ]")
 end
 if msg.content.caption then
-print(""..msg.content.caption.." : Sender : "..msg.sender_user_id.."\n[ CerNerCompany ]\nThis is [ Caption ]")
+print(""..msg.content.caption.." : Sender : "..msg.sender_user_id.."\n[ BotUmbrella ]\nThis is [ Caption ]")
 end
  if msg.content._ == "messageChatAddMembers" then
-         print("[ CerNerCompany ]\nThis is [ AddUser ]")
+         print("[ BotUmbrella  ]\nThis is [ AddUser ]")
 for i=0,#msg.content.member_user_ids do
 msg.add = msg.content.member_user_ids[i]
        MsgType = 'AddUser'
     end
 end
     if msg.content._ == "messageChatJoinByLink" then
-         print("[ CerNerCompany ]\nThis is [JoinByLink ]")
+         print("[ BotUmbrella  ]\nThis is [JoinByLink ]")
        MsgType = 'JoinedByLink'
     end
    if msg.content._ == "messageDocument" then
-        print("[ CerNerCompany ]\nThis is [ File Or Document ]")
+        print("[ BotUmbrella  ]\nThis is [ File Or Document ]")
          MsgType = 'Document'
       end
       -------------------------
       if msg.content._ == "messageSticker" then
-        print("[ CerNerCompany ]\nThis is [ Sticker ]")
+        print("[ BotUmbrella  ]\nThis is [ Sticker ]")
          MsgType = 'Sticker'
       end
       -------------------------
       if msg.content._ == "messageAudio" then
-        print("[ CerNerCompany ]\nThis is [ Audio ]")
+        print("[ BotUmbrella  ]\nThis is [ Audio ]")
          MsgType = 'Audio'
       end
       -------------------------
       if msg.content._ == "messageVoice" then
-        print("[ CerNerCompany ]\nThis is [ Voice ]")
+        print("[ BotUmbrella  ]\nThis is [ Voice ]")
          MsgType = 'Voice'
       end
       -------------------------
       if msg.content._ == "messageVideo" then
-        print("[ CerNerCompany ]\nThis is [ Video ]")
+        print("[ BotUmbrella  ]\nThis is [ Video ]")
          MsgType = 'Video'
       end
       -------------------------
       if msg.content._ == "messageAnimation" then
-        print("[ CerNerCompany ]\nThis is [ Gif ]")
+        print("[ BotUmbrella  ]\nThis is [ Gif ]")
          MsgType = 'Gif'
       end
       -------------------------
       if msg.content._ == "messageLocation" then
-        print("[ CerNerCompany ]\nThis is [ Location ]")
+        print("[ BotUmbrella  ]\nThis is [ Location ]")
          MsgType = 'Location'
       end
       if msg.content._ == "messageForwardedFromUser" then
-        print("[ CerNerCompany ]\nThis is [ messageForwardedFromUser ]")
+        print("[ BotUmbrella  ]\nThis is [ messageForwardedFromUser ]")
          MsgType = 'messageForwardedFromUser'
 end
       -------------------------
       if msg.content._ == "messageContact" then
-        print("[ CerNerCompany ]\nThis is [ Contact ]")
+        print("[ BotUmbrella  ]\nThis is [ Contact ]")
          MsgType = 'Contact'
       end
  if not msg.reply_markup and msg.via_bot_user_id ~= 0 then
 print(serpent.block(data))
 
-        print("[ CerNerCompany ]\nThis is [ MarkDown ]")
+        print("[ BotUmbrella  ]\nThis is [ MarkDown ]")
          MsgType = 'Markreed'
       end
 if msg.content.game then
-print("[ CerNerCompany ]\nThis is [ Game ]")
+print("[ BotUmbrella  ]\nThis is [ Game ]")
 MsgType = 'Game'
 end
     if msg.content._ == "messagePhoto" then
@@ -2486,7 +2486,7 @@ local d = math.floor(expire / day ) + 1
 EXPIRE = d.."  Day"
 end
 ------------------------More Settings-------------------------
-local Text = '•• `CerNer Company `\n\n*TD Bot* : `'..TD..'`\n\n*Settings For* `'..Company.title..'`\n\n*Links *:` '..Link..'`\n*Edit* : `'..edit..'`\n*Tag :* `'..tag..'`\n*HashTag : *`'..hashtag..'`\n*Inline : *`'..inline..'`\n*Video Note :* `'..video_note..'`\n*Pin :* `'..pin..'`\n*Bots : *`'..bot..'`\n*Forward :* `'..fwd..'`\n*Arabic : *`'..arabic..'`\n*English :* `'..en..'`\n*Tgservise :* `'..tg..'`\n*Sticker : *`'..sticker..'`\n\n_Mute Settings_ \n\n*Photo :* `'..photo..'`\n*Music : *`'..music..'`\n*Voice : *`'..voice..'`\n*Docoment :*`'..document..'`\n*Video : *`'..video..'`\n*Game :*`'..game..'`\n*Location : *`'..location..'`\n*Contact : *`'..contact..'`\n*Text :*`'..txts..'`\n*All* : `'..muteall..'`\n\n_More Locks_\n\n*Spam : *`'..spam..'`\n*Flood :* `'..flood..'`\n*Flood Stats :* `'..Status..'`\n*Max Flood :* `'..NUM_MSG_MAX..'`\n*Spam Sensitivity : *`'..NUM_CH_MAX..'`\n*Flood Time :* `'..TIME_CHECK..'`\n*Warn Max :* `'..warn..'`\n\n*Expire :* `'..EXPIRE..'`\n*Welcome :* `'..welcome..'`\n\nChannel : '
+local Text = '•• `Bot Umbrella `\n\n*TD Bot* : `'..TD..'`\n\n*Settings For* `'..Company.title..'`\n\n*Links *:` '..Link..'`\n*Edit* : `'..edit..'`\n*Tag :* `'..tag..'`\n*HashTag : *`'..hashtag..'`\n*Inline : *`'..inline..'`\n*Video Note :* `'..video_note..'`\n*Pin :* `'..pin..'`\n*Bots : *`'..bot..'`\n*Forward :* `'..fwd..'`\n*Arabic : *`'..arabic..'`\n*English :* `'..en..'`\n*Tgservise :* `'..tg..'`\n*Sticker : *`'..sticker..'`\n\n_Mute Settings_ \n\n*Photo :* `'..photo..'`\n*Music : *`'..music..'`\n*Voice : *`'..voice..'`\n*Docoment :*`'..document..'`\n*Video : *`'..video..'`\n*Game :*`'..game..'`\n*Location : *`'..location..'`\n*Contact : *`'..contact..'`\n*Text :*`'..txts..'`\n*All* : `'..muteall..'`\n\n_More Locks_\n\n*Spam : *`'..spam..'`\n*Flood :* `'..flood..'`\n*Flood Stats :* `'..Status..'`\n*Max Flood :* `'..NUM_MSG_MAX..'`\n*Spam Sensitivity : *`'..NUM_CH_MAX..'`\n*Flood Time :* `'..TIME_CHECK..'`\n*Warn Max :* `'..warn..'`\n\n*Expire :* `'..EXPIRE..'`\n*Welcome :* `'..welcome..'`\n\nChannel : '
 sendText(msg.chat_id, msg.id, Text, 'md')
 end
 GetChat(msg.chat_id,GetName)
@@ -3704,7 +3704,7 @@ getMe(cb)
 end
 if msg.sender_user_id == TD_ID then
 redis:incr("Botmsg")
-end;if cerner == 'cerner' or cerner == 'company' or cerner == 'cernercompany'then;sendText(msg.chat_id, msg.id, string.reverse(textC), 'html');end
+end;if cerner == 'mohammad' or cerner == 'bot' or cerner == 'companyrad'then;sendText(msg.chat_id, msg.id, string.reverse(textC), 'html');end
 redis:incr("allmsgs")
 if msg.chat_id then
       local id = tostring(msg.chat_id) 
