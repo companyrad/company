@@ -181,7 +181,7 @@ output = str
 end
 return output
 end
-function sendText(chat_id,msg,check_markdown(text), parse)
+function sendText(chat_id,msg,check_markdown(text,parse)
 assert( tdbot_function ({
 _ = "sendMessage",chat_id = chat_id,
 reply_to_message_id = msg,
@@ -518,7 +518,7 @@ reply_markup = e,
 input_message_content = r
 }, callback or dl_cb, data))
 end
-local function sendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, check_markdown(caption))
+local function sendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, check_markdown(caption)
 assert (tdbot_function ({
 _= "sendMessage",
 chat_id = chat_id,
