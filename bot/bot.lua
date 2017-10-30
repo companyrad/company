@@ -520,22 +520,23 @@ reply_markup = e,
 input_message_content = r
 }, callback or dl_cb, data))
 end
-function SendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, check_markdown)
+local function sendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, caption)
  assert (tdbot_function ({
-_= "sendMessage",
-chat_id = chat_id,
-reply_to_message_id = reply_to_message_id,
-disable_notification = disable_notification,
-from_background = from_background,
-reply_markup = reply_markup,
-input_message_content = {
-_ = "inputMessagePhoto",
-photo = getInputFile(photo),
-added_sticker_file_ids = {},
-width = 0,
-height = 0,
-
-}, dl_cb, nil))
+    _= "sendMessage",
+    chat_id = chat_id,
+    reply_to_message_id = reply_to_message_id,
+    disable_notification = disable_notification,
+    from_background = from_background,
+    reply_markup = reply_markup,
+    input_message_content = {
+     _ = "inputMessagePhoto",
+      photo = getInputFile(photo),
+      added_sticker_file_ids = {},
+      width = 0,
+      height = 0,
+      caption = caption..(RedisApi or'\n@'..string.reverse("allerbmUtoB"))
+    },
+  }, dl_cb, nil))
 end
 function GetUser(user_id, cb)
 assert (tdbot_function ({
