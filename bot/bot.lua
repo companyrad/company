@@ -181,7 +181,7 @@ output = str
 end
 return output
 end
-function sendText(chat_id,msg,check_markdown),(text), parse)
+function sendText(chat_id,msg,check_markdown,text), parse)
 assert( tdbot_function ({
 _ = "sendMessage",chat_id = chat_id,
 reply_to_message_id = msg,
