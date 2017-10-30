@@ -1474,7 +1474,7 @@ local chat_id = cerner:match('^addme (.*)$')
 sendText(msg.chat_id,msg.id,'با موفقيت تورو به گروه '..chat_id..' اضافه کردم.','md')
 addChatMembers(chat_id,{[0] = msg.sender_user_id})
 end
-if cerner == 'add' then
+if cerner == 'add' and cerner == 'نصب' and cerner == 'افزودن' then
 local function GetName(CerNer, Company)
 if not redis:get("ExpireData:"..msg.chat_id) then
 redis:setex("ExpireData:"..msg.chat_id,day,true)
@@ -1517,7 +1517,7 @@ if cerner == 'ids' then
 sendText(msg.chat_id,msg.id,''..msg.chat_id..'','md')
 end
 			
-if cerner == 'reload' then
+if cerner == 'reload' and cerner == 'بارگذاری' then
  dofile('./bot/bot.lua')
 sendText(msg.chat_id,msg.id,'• سیستم ربات بروز شد','md')
 end 
@@ -1533,7 +1533,7 @@ getMessage(msg.chat_id,
 tonumber(msg.reply_to_message_id),id_by_reply)
 end
 end
-if cerner == 'rem' then
+if cerner == 'rem' and cerner == 'لغو نصب' then
 local function GetName(CerNer, Company)
 redis:del("ExpireData:"..msg.chat_id)
 redis:srem("group:",msg.chat_id)
@@ -1634,13 +1634,13 @@ end
 if cerner == 'message_id' then
 sendText(msg.chat_id, msg.id,msg.reply_to_message_id,'md')
 end
-if cerner == "expire" then
+if cerner == "expire" and cerner == 'اعتبار گروه' then
 local ex = redis:ttl("ExpireData:"..msg.chat_id)
 if ex == -1 then
 sendText(msg.chat_id, msg.id,  "• نامحدود", 'md' )
 else
 local d = math.floor(ex / day ) + 1
-sendText(msg.chat_id, msg.id,d.."  Day",  'md' )
+sendText(msg.chat_id, msg.id,d.."  روز",  'md' )
 end
 end
 if cerner == 'leave' then
@@ -1652,7 +1652,7 @@ local user_id = cerner:match('^call (%d+)$')
 Call(user_id)
 sendText(msg.chat_id, msg.id,"Done",  'md' )
 end
-if cerner == 'stats' then
+if cerner == 'stats' and cerner == 'وضعیت ربات' then
 local allmsgs = redis:get('allmsgs')
 local supergroup = redis:scard('ChatSuper:Bot')
 local Groups = redis:scard('Chat:Normal')
@@ -2796,227 +2796,227 @@ end
 end
 get(BotHelper, msg.chat_id, 0, 0, msg.chat_id,0, GetPanel)
 end
-if cerner == 'settings' then
+if cerner == 'settings' or cerner == 'تنظیمات'  then then
 local function Get(CerNer, Companys)
 local function GetName(CerNer, Company)
 local chat = msg.chat_id
 if redis:get('Welcome:'..msg.chat_id) == 'enable' then
-welcome = 'Enable'
+welcome = 'فعال'
 else
-welcome = 'Disable'
+welcome = 'غیرفعال'
 end
 if redis:get('Lock:Edit'..chat) then
-edit = 'Enable'
+edit = 'فعال'
 else
-edit = 'Disable'
+edit = 'غیرفعال'
 end
 if redis:get("Lock:Cmd"..msg.chat_id) then
-cmd = 'Enable'
+cmd = 'فعال'
 else
-cmd = 'Disable'
+cmd = 'غیرفعال'
 end
 if redis:get('Lock:Link'..chat) then
-Link = 'Enable'
+Link = 'فعال'
 else
-Link = 'Disable' 
+Link = 'غیرفعال' 
 end
 if redis:get('Lock:Tag:'..chat) then
-tag = 'Enable'
+tag = 'فعال'
 else
-tag = 'Disable' 
+tag = 'غیرفعال' 
 end
  if redis:get("ForceJoin"..chat) then
- ForceJoin = 'Enable'
+ ForceJoin = 'فعال'
  else
- ForceJoin = 'Disable'
+ ForceJoin = 'غیرفعال'
  end
 if redis:get('Lock:HashTag:'..chat) then
-hashtag = 'Enable'
+hashtag = 'فعال'
 else
-hashtag = 'Disable' 
+hashtag = 'غیرفعال' 
 end
 if redis:get('Lock:Video_note:'..chat) then
-video_note = 'Enable'
+video_note = 'فعال'
 else
-video_note = 'Disable' 
+video_note = 'غیرفعال' 
 end
 if redis:get('Lock:Inline:'..chat) then
-inline = 'Enable'
+inline = 'فعال'
 else
-inline = 'Disable' 
+inline = 'غیرفعال' 
 end
 if redis:get("Flood:Status:"..msg.chat_id) then
 if redis:get("Flood:Status:"..msg.chat_id) == "kickuser" then
-Status = 'Kick User'
+Status = 'اخراج کاربر'
 elseif redis:get("Flood:Status:"..msg.chat_id) == "muteuser" then
-Status = 'Mute User'
+Status = 'سکوت سازی کاربر'
 elseif redis:get("Flood:Status:"..msg.chat_id) == "deletemsg" then
-Status = 'Del'
+Status = 'پاک کردن پیام'
 end
 else
-Status = 'Not Set'
+Status = 'تنظیم نشده'
 end
 if redis:get("Mute:All:Status:"..msg.chat_id) then
 if redis:get("Mute:All:Status:"..msg.chat_id) == "Restricted" then
 Statusm = 'Restricted'
 elseif redis:get("Mute:All:Status:"..msg.chat_id) == "deletemsg" then
-Statusm = 'Del Msgs'
+Statusm = 'پاک کردن پیام'
 end
 else
-Statusm = 'Not Set'
+Statusm = 'تنظیم نشده'
 end
 if redis:get("Force:Status:"..msg.chat_id) then
 if redis:get("Force:Status:"..msg.chat_id) == "new user" then
-forcemod = 'New Memer'
+forcemod = 'اعضای جدید'
 elseif redis:get("Force:Status:"..msg.chat_id) == "all" then
-forcemod = 'All members'
+forcemod = 'تمامی اعضا'
 end
 else
-forcemod = 'Not Set'
+forcemod = 'تنظیم نشده'
 end
 if redis:get('Lock:Pin:'..chat) then
-pin = 'Enable'
+pin = 'فعال'
 else
-pin = 'Disable' 
+pin = 'غیرفعال' 
 end
 if redis:get('Lock:Forward:'..chat) then
-fwd = 'Enable'
+fwd = 'فعال'
 else
-fwd = 'Disable' 
+fwd = 'غیرفعال' 
 end
 if redis:get('forceAdd:'..chat) then
-force = 'Enable'
+force = 'فعال'
 else
-force = 'Disable' 
+force = 'غیرفعال' 
 end
 if redis:get('Lock:Bot:'..chat) then
-bot = 'Enable'
+bot = 'فعال'
 else
-bot = 'Disable' 
+bot = 'غیرفعال' 
 end
 if redis:get('Spam:Lock:'..chat) then
-spam = 'Enable'
+spam = 'فعال'
 else
-spam = 'Disable' 
+spam = 'غیرفعال' 
 end
 if redis:get('Lock:Arabic:'..chat) then
-arabic = 'Enable'
+arabic = 'فعال'
 else
-arabic = 'Disable' 
+arabic = 'غیرفعال' 
 end
 if redis:get('Lock:English:'..chat) then
-en = 'Enable'
+en = 'فعال'
 else
-en = 'Disable' 
+en = 'غیرفعال' 
 end
 if redis:get('Lock:Markdown:'..chat) then
-mak = 'Enable'
+mak = 'فعال'
 else
-mak = 'Disable' 
+mak = 'غیرفعال' 
 end
 if redis:get('Lock:TGservise:'..chat) then
-tg = 'Enable'
+tg = 'فعال'
 else
-tg = 'Disable' 
+tg = 'غیرفعال' 
 end
 if redis:get('Lock:Sticker:'..chat) then
-sticker = 'Enable'
+sticker = 'فعال'
 else
-sticker = 'Disable' 
+sticker = 'غیرفعال' 
 end
 if redis:get('CheckBot:'..msg.chat_id) then
-TD = 'Enable'
+TD = 'فعال'
 else
-TD = 'Disable'
+TD = 'غیرفعال'
 end
 if redis:get('automuteall'..chat_id) then
-auto= 'Enable'
+auto= 'فعال'
 else
-auto= 'Disable'
+auto= 'غیرفعال'
 end
 -------------------------------------------
 ---------Mute Settings----------------------
 if redis:get('Mute:Text:'..msg.chat_id) then
-txts = 'Enable'
+txts = 'فعال'
 else
-txts = 'Disable'
+txts = 'غیرفعال'
 end
 if redis:get('Mute:Caption:'..msg.chat_id) then
-caption = 'Enable'
+caption = 'فعال'
 else
-caption = 'Disable'
+caption = 'غیرفعال'
 end
 if redis:get('Mute:Reply:'..chat) then
-rep = 'Enable'
+rep = 'فعال'
 else
-rep = 'Disable' 
+rep = 'غیرفعال' 
 end
 if redis:get('Mute:Contact:'..msg.chat_id) then
-contact = 'Enable'
+contact = 'فعال'
 else
-contact = 'Disable'
+contact = 'غیرفعال'
 end
 if redis:get('Mute:Document:'..msg.chat_id) then
-document = 'Enable'
+document = 'فعال'
 else
-document = 'Disable'
+document = 'غیرفعال'
 end
 if redis:get('Mute:Location:'..msg.chat_id) then
-location = 'Enable'
+location = 'فعال'
 else
-location = 'Disable'
+location = 'غیرفعال'
 end
 if redis:get('Mute:Voice:'..msg.chat_id) then
-voice = 'Enable'
+voice = 'فعال'
 else
-voice = 'Disable'
+voice = 'غیرفعال'
 end
 if redis:get('Mute:Photo:'..msg.chat_id) then
-photo = 'Enable'
+photo = 'فعال'
 else
-photo = 'Disable'
+photo = 'غیرفعال'
 end
 if redis:get('Mute:Game:'..msg.chat_id) then
-game = 'Enable'
+game = 'فعال'
 else
-game = 'Disable'
+game = 'غیرفعال'
 end
 if redis:get('MuteAll:'..chat) then
-muteall = 'Enable'
+muteall = 'فعال'
 else
-muteall = 'Disable' 
+muteall = 'غیرفعال' 
 end
 if redis:get('Lock:Flood:'..msg.chat_id) then
-flood = 'Enable'
+flood = 'فعال'
 else
-flood = 'Disable'
+flood = 'غیرفعال'
 end
 if redis:get('Mute:Video:'..msg.chat_id) then
-video = 'Enable'
+video = 'فعال'
 else
-video = 'Disable'
+video = 'غیرفعال'
 end
 if redis:get('Mute:Music:'..msg.chat_id) then
-music = 'Enable'
+music = 'فعال'
 else
-music = 'Disable'
+music = 'غیرفعال'
 end
 if redis:get('Mute:Gif:'..msg.chat_id) then
-gif = 'Enable'
+gif = 'فعال'
 else
-gif = 'Disable'
+gif = 'غیرفعال'
 end
 local expire = redis:ttl("ExpireData:"..msg.chat_id)
 if expire == -1 then
-EXPIRE = "Unlimited"
+EXPIRE = "نامحدود"
 else
 local d = math.floor(expire / day ) + 1
-EXPIRE = d.."  Day"
+EXPIRE = d.."  روز"
 end
 ------------------------More Settings-------------------------
 local stop = (redis:get('EndTimeSee'..msg.chat_id) or 'nil')
 local start = (redis:get('StartTimeSee'..msg.chat_id) or 'nil')
-local Text = '•• `CerNer Company `\n\n*TD Bot* : `'..TD..'`\n\n*Settings For* `'..Company.title..'`\n\n*Links *:` '..Link..'`\n*Edit* : `'..edit..'`\n*Markdown :* `'..mak..'`\n*Tag :* `'..tag..'`\n*HashTag : *`'..hashtag..'`\n*Inline : *`'..inline..'`\n*Video Note :* `'..video_note..'`\n*Pin :* `'..pin..'`\n*Bots : *`'..bot..'`\n*Forward :* `'..fwd..'`\n*Arabic : *`'..arabic..'`\n*English :* `'..en..'`\n*Tgservise :* `'..tg..'`\n*Sticker : *`'..sticker..'`\n\n_Mute Settings_ \n\n*Photo :* `'..photo..'`\n*Music : *`'..music..'`\n*Reply :* `'..rep..'`\n*Caption :* `'..caption..'`\n*Voice : *`'..voice..'`\n*Docoment :*`'..document..'`\n*Video : *`'..video..'`\n*Game :*`'..game..'`\n*Location : *`'..location..'`\n*Gif :* `'..gif..'`\n*Contact : *`'..contact..'`\n*Text :*`'..txts..'`\n*All* : `'..muteall..'`\n*Mute All Status :* `'..Statusm..'`\n\n_More Locks_\n\n*Force Add :* `'..force..'`\n*Force Max * : `'..forcemax..'`\n*Force mod *: `'..forcemod..'`\n*Auto Delete :*`'..forcetime..'`|SC\n*Force Join : *`'.. ForceJoin..'`\n*Channel For Force Join :* '..Channel..'\n*AutoMute All * : `'..auto..'`\n_Stats Auto :_ \n*Start :* `'..start..'`\n*Stop : *`'..stop..'`\n*Command :* `'..cmd..'`\n*Spam : *`'..spam..'`\n*Flood :* `'..flood..'`\n*Flood Stats :* `'..Status..'`\n*Max Flood :* `'..NUM_MSG_MAX..'`\n*Spam Sensitivity : *`'..NUM_CH_MAX..'`\n*Flood Time :* `'..TIME_CHECK..'`\n*Warn Max :* `'..warn..'`\n\n*Expire :* `'..EXPIRE..'`\n*Welcome :* `'..welcome..'`\n\n*SuperGroup Info :*\n`SuperGroup ID :`*'..msg.chat_id..'*\n`Total Admins :` *'..Companys.administrator_count..'*\n`Total Banned :` *'..Companys.banned_count..'*\n`Total Members :` *'..Companys.member_count..'*\n`Group Name :` *'..Company.title..'*'
+local Text = '•• `پی وی مسنجر کمپانی `\n\n*ربات * : `'..TD..'`\n\n*تنظیمات گروه :* `'..Company.title..'`\n\n*قفل لینک *:` '..Link..'`\n*قفل ویرایش پیام* : `'..edit..'`\n*قفل مارکدون :* `'..mak..'`\n*قفل تگ :* `'..tag..'`\n*قفل هشتگ : *`'..hashtag..'`\n*قفل اینلاین : *`'..inline..'`\n*قفل ویدیو :* `'..video_note..'`\n*قفل پین :* `'..pin..'`\n*قفل ورود ربات : *`'..bot..'`\n*قفل فروراد :* `'..fwd..'`\n*قفل زبان عربی/فارسی : *`'..arabic..'`\n*قفل زبان انگلیسی :* `'..en..'`\n*قفل خدمات تلگرام :* `'..tg..'`\n*قفل استیکر : *`'..sticker..'`\n\n_دیگر تنظیمات_ \n\n*قفل عکس :* `'..photo..'`\n*قفل موزیک : *`'..music..'`\n*قفل رپلی :* `'..rep..'`\n*قفل زیر نوشته :* `'..caption..'`\n*قفل ویس : *`'..voice..'`\n*قفل فایل :*`'..document..'`\n*قفل ویدیو : *`'..video..'`\n*قفل بازی :*`'..game..'`\n*قفل مکان : *`'..location..'`\n*قفل تصاویر متحرک :* `'..gif..'`\n*قفل شماره تلفن : *`'..contact..'`\n*قفل متن  :*`'..txts..'`\n*قفل همه* : `'..muteall..'`\n*وضعیت سکوت گروه :* `'..Statusm..'`\n\n_دیگر قفل ها_\n\n*Force Add :* `'..force..'`\n*Force Max * : `'..forcemax..'`\n*Force mod *: `'..forcemod..'`\n*Auto Delete :*`'..forcetime..'`|SC\n*Force Join : *`'.. ForceJoin..'`\n*Channel For Force Join :* '..Channel..'\n*AutoMute All * : `'..auto..'`\n_Stats Auto :_ \n*Start :* `'..start..'`\n*Stop : *`'..stop..'`\n*Command :* `'..cmd..'`\n*Spam : *`'..spam..'`\n*Flood :* `'..flood..'`\n*Flood Stats :* `'..Status..'`\n*Max Flood :* `'..NUM_MSG_MAX..'`\n*Spam Sensitivity : *`'..NUM_CH_MAX..'`\n*زمان چک کردن پیام  :* `'..TIME_CHECK..'`\n*تعداد اخطار ها :* `'..warn..'`\n\n*انقضا گروه :* `'..EXPIRE..'`\n*خوش آمد گویی :* `'..welcome..'`\n\n*اطلاعات گروه :*\n`آیدی گروه :`*'..msg.chat_id..'*\n`تعداد کل مدیران گروه :` *'..Companys.administrator_count..'*\n`تعداد اعضای مسدود شده :` *'..Companys.banned_count..'*\n`تعداد اعضای گروه :` *'..Companys.member_count..'*\n`نام گروه :` *'..Company.title..'*'
 sendText(msg.chat_id, msg.id, Text, 'md')
 end
 GetChat(msg.chat_id,GetName)
@@ -3024,7 +3024,7 @@ end
 getChannelFull(msg.chat_id,Get)
 end
 ---------------------Welcome----------------------
-if cerner == 'welcome enable' then
+if cerner == 'welcome enable'  then
 if redis:get('Welcome:'..msg.chat_id) == 'enable' then
 sendText(msg.chat_id, msg.id,'• *Welcome* is _Already_ Enable\n\n' ,'md')
 else
@@ -3832,7 +3832,7 @@ end
 print(matcheesss)
 GetWeb(matcheesss,Webpage)
 end
- if cerner == "id" and tonumber(msg.reply_to_message_id) == 0 then 
+ if cerner == "id" and cerner == 'آیدی' and cerner == 'ایدی' or and tonumber(msg.reply_to_message_id) == 0 then 
 local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
@@ -3968,7 +3968,7 @@ local games = {'Corsairs','LumberJack','MathBattle'}
 sendGame(msg.chat_id, msg.id, 166035794, games[math.random(#games)])
 end
 end
-if cerner == 'ping'  or cerner == 'پینگ' then
+if cerner == 'ping'  or cerner == 'پینگ' or cerner == 'ربات' then then
 local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
