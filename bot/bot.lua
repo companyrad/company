@@ -827,26 +827,14 @@ cerner= cerner:gsub('^[/#!]','')
 end
 end
 --------------MSG TYPE----------------
- if msg.content._== "messageText" then
+if msg.content._== "messageText" then
 MsgType = 'text'
 end
- if msg.content._== "messageText" then
-local function GetM(Company,CerNer)
-local function GetName(Companys,Company)
-print("\027[" ..color.blue[1].. "m["..os.date("%H:%M:%S").."]\027[00m ["..CerNer.title.."] "..Company.first_name.." >>>> "..msg.content.text.."")
-end
-GetUser(msg.sender_user_id,GetName)
-end
-GetChat(msg.chat_id,GetM)
+if msg.content.text then
+print(""..msg.content.text.." : Sender : "..msg.sender_user_id.."\n[ BotUmbrella  ]\nThis is [ TEXT ]")
 end
 if msg.content.caption then
-function GetM(Company,CerNer)
-function GetName(Companys,Company)
-print("["..os.date("%H:%M:%S").."] "..CerNer.title.." "..Company.first_name.." >>>> "..msg.content.caption.."")
-end
-GetUser(msg.sender_user_id,GetName)
-end
-GetChat(msg.chat_id,GetM)
+print(""..msg.content.caption.." : Sender : "..msg.sender_user_id.."\n[ BotUmbrella ]\nThis is [ Caption ]")
 end
 if msg.content._ == "messageChatAddMembers" then
 function GetM(Company,CerNer)
