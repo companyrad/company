@@ -181,22 +181,6 @@ output = str
 end
 return output
 end
-function sendText(chat_id,msg,check_markdown(text)
-assert( tdbot_function ({
-_ = "sendMessage",chat_id = chat_id,
-reply_to_message_id = msg,
-disable_notification = 0,
-from_background = 1,
-reply_markup = nil,
-input_message_content = {
-_ = "inputMessageText",text = text.."\n"..Channel,
-disable_web_page_preview = 1,
-clear_draft = 0,
-parse_mode = getParse(parse),
-entities = {}
-}
-}, dl_cb, nil))
-end
 
 local function getChatId(chat_id)
 local chat = {}
