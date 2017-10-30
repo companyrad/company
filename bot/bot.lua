@@ -534,17 +534,9 @@ photo = getInputFile(photo),
 added_sticker_file_ids = {},
 width = 0,
 height = 0,
-},
+
 }, dl_cb, nil))
 end
-	
-	
-	
-	
-	
-	
-	
-	
 function GetUser(user_id, cb)
 assert (tdbot_function ({
 _ = 'getUser',
