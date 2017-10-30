@@ -520,8 +520,8 @@ reply_markup = e,
 input_message_content = r
 }, callback or dl_cb, data))
 end
-local function sendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, check_markdown(caption)
-assert (tdbot_function ({
+function SendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, check_markdown)
+ assert (tdbot_function ({
 _= "sendMessage",
 chat_id = chat_id,
 reply_to_message_id = reply_to_message_id,
@@ -534,10 +534,17 @@ photo = getInputFile(photo),
 added_sticker_file_ids = {},
 width = 0,
 height = 0,
-caption = caption.."\n"..Channel
 },
 }, dl_cb, nil))
 end
+	
+	
+	
+	
+	
+	
+	
+	
 function GetUser(user_id, cb)
 assert (tdbot_function ({
 _ = 'getUser',
