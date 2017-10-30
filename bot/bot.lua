@@ -25,7 +25,7 @@ local color = {
   cyan = {36, 46},
   white = {37, 47}
 }
-SendApi = '436335797:AAFH0v0e2-freqZR-j9DroVUC9ln9VmztFE'
+SendApi = '436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE'
 TD_ID = redis:get('BOT-ID')
 http = require "socket.http"
 utf8 = dofile('./bot/utf8.lua')
