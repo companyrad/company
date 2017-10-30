@@ -1,4 +1,4 @@
-#start Project Anti Spam V4:)
+
 json = dofile('./libs/JSON.lua')
 serpent = dofile("./libs/serpent.lua")
 lgi = require ('lgi')
