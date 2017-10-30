@@ -3804,7 +3804,7 @@ print(matcheesss)
 GetWeb(matcheesss,Webpage)
 end
  if cerner == "id" and tonumber(msg.reply_to_message_id) == 0 then 
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3836,7 +3836,7 @@ end
 end
 
 if cerner == 'me' or cerner == 'من' then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3896,7 +3896,7 @@ end
 
 -------------------------------
 if cerner == 'link' or cerner == 'لینک'  then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3912,7 +3912,7 @@ end
 end
 end
 if cerner == 'rules' or cerner == 'قوانین' then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3928,7 +3928,7 @@ end
 end
 end
 if cerner == 'games' or cerner == 'ارسال بازی' then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3940,7 +3940,7 @@ sendGame(msg.chat_id, msg.id, 166035794, games[math.random(#games)])
 end
 end
 if cerner == 'ping'  or cerner == 'پینگ' then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
@@ -3951,7 +3951,7 @@ sendVideoNote(msg.chat_id,msg.id,0,1,nil,'./bot/ping.jpg')
 end
 end
 if cerner == 'help' or cerner == 'راهنما' then
-local url  = https.request('https://api.telegram.org/bot'..SendApi..'/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
+local url  = https.request('https://api.telegram.org/bot436335797:AAFw-wgtAE2CCvE2Ge1fgcLyZr75x23cpKE/getchatmember?chat_id='..Channel..'&user_id='..msg.sender_user_id)
 if res ~= 200 then
 end
 Company = json:decode(url)
